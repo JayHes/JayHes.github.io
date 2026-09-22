@@ -4,93 +4,454 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Unreal Engine Game Workshop 2 | Jerome</title>
-<meta name="description" content="Case study for Jerome's Unreal Engine Game Workshop 2 curriculum." />
+<meta name="description" content="Case study for Jerome's Unreal Engine Game Workshop 2 curriculum, including instructor-led and self-guided learning formats." />
 <style>
-:root{--bg:#0b0f14;--card:#151c26;--border:#263241;--text:#f5f7fa;--muted:#9aa7b5;--accent:#7c5cff;--accent2:#2dd4bf;--max:1150px;--r:18px}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Inter,Arial,Helvetica,sans-serif;background:radial-gradient(circle at top left,rgba(124,92,255,.12),transparent 28%),var(--bg);color:var(--text);line-height:1.65}a{color:inherit;text-decoration:none}.container{width:min(92%,var(--max));margin:auto}
-nav{position:sticky;top:0;z-index:100;background:rgba(11,15,20,.86);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.05)}.nav-inner{width:min(92%,var(--max));margin:auto;min-height:72px;display:flex;align-items:center;justify-content:space-between}.logo{font-weight:800;font-size:1.2rem}.logo span{color:var(--accent)}.back{color:var(--muted)}.back:hover{color:var(--text)}
-.hero{padding:70px 0 40px}.eyebrow{color:var(--accent2);font-weight:800;text-transform:uppercase;letter-spacing:.08em;font-size:.82rem}.hero h1{font-size:clamp(2.8rem,7vw,5.5rem);line-height:.98;letter-spacing:-.05em;margin:12px 0 20px}.lead{color:var(--muted);max-width:820px;font-size:1.1rem}.cover{margin-top:38px;border:1px solid var(--border);border-radius:22px;overflow:hidden;background:#111}.cover img{width:100%;display:block}
-.section{padding:70px 0}.section h2{font-size:clamp(2rem,4vw,3rem);letter-spacing:-.03em;margin-bottom:12px}.intro{color:var(--muted);max-width:850px;margin-bottom:28px}.overview{display:grid;grid-template-columns:1fr 1fr;gap:22px}.card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:26px}.card h3{margin-bottom:10px}.card p,.card li{color:var(--muted)}.card ul{padding-left:20px}
-.format-nav{display:grid;grid-template-columns:1fr 1fr;gap:18px}.format-card{padding:26px;background:var(--card);border:1px solid var(--border);border-radius:var(--r);transition:.2s}.format-card:hover{transform:translateY(-3px);border-color:#465970}.format-card small{color:var(--accent2);font-weight:800;text-transform:uppercase;letter-spacing:.08em}.format-card h3{font-size:1.35rem;margin:6px 0}.format-card p{color:var(--muted)}
-.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.shot{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}.shot button{all:unset;display:block;cursor:zoom-in;width:100%}.shot img{width:100%;display:block}.caption{padding:14px 16px;color:var(--muted);font-size:.92rem}.wide{grid-column:1/-1}
-.compare{display:grid;grid-template-columns:1fr 1fr;gap:20px}.compare .shot{height:100%}.label{padding:12px 16px;font-weight:800}
-.notice{background:linear-gradient(135deg,rgba(124,92,255,.14),rgba(45,212,191,.06)),var(--card);border:1px solid var(--border);border-radius:var(--r);padding:24px}.notice strong{display:block;margin-bottom:8px}.notice p{color:var(--muted)}
-.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:999;display:none;align-items:center;justify-content:center;padding:24px}.lightbox.open{display:flex}.lightbox img{max-width:96vw;max-height:92vh;object-fit:contain}.lightbox button{position:absolute;top:20px;right:24px;background:#fff;color:#111;border:0;border-radius:999px;width:42px;height:42px;font-size:24px;cursor:pointer}
-footer{border-top:1px solid rgba(255,255,255,.05);padding:28px 0;color:var(--muted);font-size:.9rem}
-@media(max-width:800px){.overview,.format-nav,.gallery,.compare{grid-template-columns:1fr}.wide{grid-column:auto}.section{padding:55px 0}.hero{padding-top:50px}}
+:root{
+  --bg:#0b0f14;--bg-soft:#10161f;--card:#151c26;--card-2:#111821;--border:#263241;
+  --text:#f5f7fa;--muted:#9aa7b5;--accent:#7c5cff;--accent2:#2dd4bf;
+  --accent-soft:rgba(124,92,255,.14);--max:1150px;--r:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,Arial,Helvetica,sans-serif;
+  background:
+    radial-gradient(circle at top left,rgba(124,92,255,.12),transparent 28%),
+    radial-gradient(circle at top right,rgba(45,212,191,.06),transparent 22%),
+    var(--bg);
+  color:var(--text);line-height:1.65;
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+img{max-width:100%}
+.container{width:min(92%,var(--max));margin:auto}
+
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(11,15,20,.86);backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+.nav-inner{
+  width:min(92%,var(--max));margin:auto;min-height:72px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+.logo{font-weight:800;font-size:1.2rem;letter-spacing:-.02em}
+.logo span{color:var(--accent)}
+.back{color:var(--muted);font-size:.95rem;transition:.2s}
+.back:hover{color:var(--text)}
+
+.hero{padding:74px 0 46px}
+.hero-copy-wrap{max-width:900px}
+.eyebrow{
+  color:var(--accent2);font-weight:800;text-transform:uppercase;
+  letter-spacing:.09em;font-size:.8rem;
+}
+.hero h1{
+  font-size:clamp(3rem,7vw,5.6rem);line-height:.96;
+  letter-spacing:-.055em;margin:14px 0 22px;max-width:920px;
+}
+.lead{color:var(--muted);max-width:850px;font-size:1.12rem}
+.hero-tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}
+.hero-tag{
+  padding:7px 10px;border-radius:999px;border:1px solid var(--border);
+  background:rgba(255,255,255,.025);color:#d9e0e8;font-size:.82rem;
+}
+.cover{
+  margin-top:38px;border:1px solid var(--border);border-radius:24px;overflow:hidden;
+  background:#0f141b;box-shadow:0 26px 65px rgba(0,0,0,.28);
+}
+.cover img{width:100%;display:block}
+.cover-note{padding:12px 16px;color:var(--muted);font-size:.85rem;border-top:1px solid var(--border)}
+
+.section{padding:72px 0}
+.section.alt{
+  background:linear-gradient(180deg,rgba(255,255,255,.015),rgba(255,255,255,.005));
+  border-top:1px solid rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.04);
+}
+.kicker{
+  color:var(--accent2);font-size:.78rem;font-weight:800;text-transform:uppercase;
+  letter-spacing:.09em;margin-bottom:8px;
+}
+.section h2{
+  font-size:clamp(2rem,4vw,3rem);letter-spacing:-.035em;
+  line-height:1.08;margin-bottom:12px;
+}
+.intro{color:var(--muted);max-width:860px;margin-bottom:30px;font-size:1.02rem}
+
+.overview{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:18px}
+.card{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:24px;
+}
+.card small{
+  display:block;color:var(--accent2);font-size:.76rem;font-weight:800;
+  text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;
+}
+.card h3{font-size:1.17rem;margin-bottom:8px}
+.card p{color:var(--muted)}
+
+.format-nav{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.format-card{
+  display:block;padding:27px;background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r);transition:.22s;
+}
+.format-card:hover{transform:translateY(-3px);border-color:#4c6079;background:#18212d}
+.format-card small{color:var(--accent2);font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+.format-card h3{font-size:1.38rem;margin:7px 0}
+.format-card p{color:var(--muted)}
+.format-card .jump{display:inline-block;margin-top:14px;font-weight:800;font-size:.9rem;color:#ddd7ff}
+
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.shot{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+  overflow:hidden;transition:.2s;
+}
+.shot:hover{border-color:#405268}
+.shot-head{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:13px 15px;border-bottom:1px solid var(--border);
+}
+.shot-head strong{font-size:.95rem}
+.shot-head span{color:var(--muted);font-size:.8rem}
+.media-button{
+  all:unset;box-sizing:border-box;display:block;width:100%;cursor:zoom-in;
+  background:#090d12;
+}
+.media-frame{
+  height:310px;display:flex;align-items:center;justify-content:center;padding:12px;
+  background:
+    linear-gradient(135deg,rgba(124,92,255,.045),rgba(45,212,191,.025)),
+    #0b1016;
+}
+.media-frame img{
+  width:100%;height:100%;object-fit:contain;display:block;
+}
+.caption{padding:14px 16px;color:var(--muted);font-size:.9rem}
+.caption strong{color:var(--text);font-weight:700}
+
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.gallery .shot:first-child{grid-column:1/-1}
+.gallery .shot:first-child .media-frame{height:430px}
+.gallery .shot:not(:first-child) .media-frame{height:300px}
+
+.format-summary{
+  display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 28px;
+}
+.summary-pill{
+  font-size:.8rem;padding:7px 10px;border-radius:999px;
+  border:1px solid var(--border);color:#d4dbe4;background:var(--card-2);
+}
+
+.notice{
+  background:linear-gradient(135deg,rgba(124,92,255,.14),rgba(45,212,191,.06)),var(--card);
+  border:1px solid var(--border);border-radius:var(--r);padding:26px;
+}
+.notice strong{display:block;margin-bottom:7px;font-size:1.05rem}
+.notice p{color:var(--muted);max-width:900px}
+
+.lightbox{
+  position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:999;display:none;
+  align-items:center;justify-content:center;padding:24px;
+}
+.lightbox.open{display:flex}
+.lightbox img{max-width:96vw;max-height:90vh;object-fit:contain;border-radius:8px}
+.lightbox-close{
+  position:absolute;top:20px;right:24px;background:#fff;color:#111;border:0;
+  border-radius:999px;width:44px;height:44px;font-size:26px;line-height:1;cursor:pointer;
+}
+.lightbox-hint{
+  position:absolute;bottom:18px;left:50%;transform:translateX(-50%);
+  color:#c7cdd5;font-size:.82rem;background:rgba(0,0,0,.55);padding:6px 10px;border-radius:999px;
+}
+
+footer{
+  border-top:1px solid rgba(255,255,255,.05);padding:28px 0;
+  color:var(--muted);font-size:.9rem;
+}
+.footer-inner{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.top-link{color:#d8dce3}
+
+@media(max-width:900px){
+  .overview{grid-template-columns:1fr 1fr}
+  .overview .card:first-child{grid-column:1/-1}
+}
+@media(max-width:800px){
+  .format-nav,.gallery,.compare,.overview{grid-template-columns:1fr}
+  .overview .card:first-child,.gallery .shot:first-child{grid-column:auto}
+  .gallery .shot:first-child .media-frame,.gallery .shot:not(:first-child) .media-frame,.media-frame{height:auto;min-height:220px}
+  .media-frame img{height:auto;max-height:70vh}
+  .section{padding:56px 0}.hero{padding-top:52px}
+}
+@media(max-width:520px){
+  .nav-inner{min-height:64px}.back{font-size:.86rem}
+  .hero h1{font-size:3rem}.lead{font-size:1rem}
+  .shot-head{align-items:flex-start;flex-direction:column;gap:2px}
+}
 </style>
 </head>
-<body>
-<nav><div class="nav-inner"><a class="logo" href="../index.html">Jerome<span>.</span></a><a class="back" href="../index.html#projects">← Back to Projects</a></div></nav>
+<body id="top">
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="../index.html">Jerome<span>.</span></a>
+    <a class="back" href="../index.html#projects">← Back to Projects</a>
+  </div>
+</nav>
+
 <main>
-<section class="hero"><div class="container">
-  <div class="eyebrow">Curriculum Design • Unreal Engine • Technical Training</div>
-  <h1>Unreal Engine<br>Game Workshop 2</h1>
-  <p class="lead">A university game-development curriculum designed to make Unreal Engine easier to follow through clear explanations, screenshots, practical examples, and two distinct delivery formats.</p>
-  <div class="cover"><img src="../assets/game-workshop-2/d5db0819-b2e0-47e4-8ed8-fff7b01d98fd.png" alt="Getting Started with Unreal Engine FPS Template cover slide" /></div>
-</div></section>
+<section class="hero">
+  <div class="container">
+    <div class="hero-copy-wrap">
+      <div class="eyebrow">Curriculum Design • Unreal Engine • Technical Training</div>
+      <h1>Unreal Engine<br>Game Workshop 2</h1>
+      <p class="lead">A university game-development workshop built to make beginner Unreal Engine concepts easier to understand, follow, and teach. I created two versions of the same core curriculum: one for live classroom instruction and one for students working independently.</p>
+      <div class="hero-tags">
+        <span class="hero-tag">Curriculum Design</span>
+        <span class="hero-tag">Technical Instruction</span>
+        <span class="hero-tag">Visual Learning Materials</span>
+        <span class="hero-tag">Unreal Engine</span>
+      </div>
+    </div>
 
-<section class="section"><div class="container">
-  <h2>Project Overview</h2>
-  <p class="intro">I designed learning material for a university summer game-development program and structured it so the same Unreal Engine concepts could work in two settings: live classroom instruction and independent student study.</p>
-  <div class="overview">
-    <div class="card"><h3>My Role</h3><p>Curriculum design, technical instruction, visual learning materials, screenshots, lesson structure, and supporting the instructor so the material could continue to be delivered independently.</p></div>
-    <div class="card"><h3>Design Goal</h3><p>Reduce confusion for beginners by pairing technical explanations with visual references instead of asking learners to rely on text alone.</p></div>
+    <div class="cover">
+      <img src="../assets/game-workshop-2/d5db0819-b2e0-47e4-8ed8-fff7b01d98fd.png" alt="Getting Started with Unreal Engine FPS Template presentation cover" />
+      <div class="cover-note">Selected portfolio excerpt from the instructor-led presentation.</div>
+    </div>
   </div>
-</div></section>
+</section>
 
-<section class="section"><div class="container">
-  <h2>One curriculum, two delivery formats.</h2>
-  <p class="intro">Both versions use screenshots and visual examples throughout. The difference is how the material is meant to be used.</p>
-  <div class="format-nav">
-    <a class="format-card" href="#presentation"><small>Live Classroom</small><h3>Instructor-Led Presentation</h3><p>A more visually styled format designed to be projected while an instructor leads the class through each concept.</p></a>
-    <a class="format-card" href="#guide"><small>Independent Study</small><h3>Self-Guided Course Guide</h3><p>A calmer, more detailed reference format designed for students to read and follow at their own pace.</p></a>
+<section class="section alt">
+  <div class="container">
+    <div class="kicker">Overview</div>
+    <h2>Designed for clarity from the start.</h2>
+    <p class="intro">The goal was not just to explain Unreal Engine, but to reduce the points where a beginner could get lost. Written explanations were paired with screenshots and visual references throughout both versions of the course.</p>
+
+    <div class="overview">
+      <div class="card">
+        <small>My Role</small>
+        <h3>Curriculum + instructional design</h3>
+        <p>I created the lesson structure, written explanations, screenshots, visual materials, and supporting training used to help the instructor deliver the curriculum independently.</p>
+      </div>
+      <div class="card">
+        <small>Audience</small>
+        <h3>Beginner game-development learners</h3>
+        <p>The material introduces Unreal Engine concepts in a way that gives learners both the explanation and the on-screen reference they need to follow along.</p>
+      </div>
+      <div class="card">
+        <small>Approach</small>
+        <h3>Explain it, then show it</h3>
+        <p>Technical terms are broken into plain-language explanations and reinforced with interface screenshots, examples, and visual callouts.</p>
+      </div>
+    </div>
   </div>
-</div></section>
+</section>
 
-<section class="section" id="comparison"><div class="container">
-  <h2>Same lesson, different delivery.</h2>
-  <p class="intro">The Outliner lesson shows how the same core teaching content was adapted for different learning contexts without removing the visual support.</p>
-  <div class="compare">
-    <div class="shot"><div class="label">Self-Guided Course Guide</div><button onclick="openLightbox(this)"><img src="../assets/game-workshop-2/ad8fcce9-2fcc-4b52-ab77-eb47ddd42b99.png" alt="Self-guided Outliner lesson" /></button></div>
-    <div class="shot"><div class="label">Instructor-Led Presentation</div><button onclick="openLightbox(this)"><img src="../assets/game-workshop-2/465e5a67-2916-4441-85dc-ee1f62795635.png" alt="Instructor-led Outliner lesson" /></button></div>
+<section class="section">
+  <div class="container">
+    <div class="kicker">Delivery Design</div>
+    <h2>One curriculum, two learning formats.</h2>
+    <p class="intro">Both versions are visual. The distinction is how the learner is expected to use them: one supports an instructor teaching the room, while the other supports a student working through the material on their own.</p>
+
+    <div class="format-nav">
+      <a class="format-card" href="#presentation">
+        <small>Live Classroom</small>
+        <h3>Instructor-Led Presentation</h3>
+        <p>A more presentation-focused format with concise text, large screenshots, and stronger visual styling for live instruction.</p>
+        <span class="jump">View presentation samples ↓</span>
+      </a>
+
+      <a class="format-card" href="#guide">
+        <small>Independent Study</small>
+        <h3>Self-Guided Course Guide</h3>
+        <p>A more reference-focused format with expanded written guidance and screenshots students can follow at their own pace.</p>
+        <span class="jump">View guide samples ↓</span>
+      </a>
+    </div>
   </div>
-</div></section>
+</section>
 
-<section class="section" id="presentation"><div class="container">
-  <h2>Instructor-Led Presentation</h2>
-  <p class="intro">Designed for live classroom delivery, with concise explanations, large screenshots, and game-inspired visual styling to support guided instruction.</p>
-  <div class="gallery">
-    <div class="shot"><button onclick="openLightbox(this)"><img src="../assets/game-workshop-2/e04d8460-79eb-4a5d-be46-6ec5302b0f1a.png" alt="Instructor-led first person template lesson" /></button><div class="caption">First Person Template / getting started</div></div>
-    <div class="shot"><button onclick="openLightbox(this)"><img src="../assets/game-workshop-2/465e5a67-2916-4441-85dc-ee1f62795635.png" alt="Instructor-led Outliner lesson" /></button><div class="caption">Outliner</div></div>
-    <div class="shot"><button onclick="openLightbox(this)"><img src="../assets/game-workshop-2/05df902b-1bfe-4791-aab0-31588f4c6f39.png" alt="Instructor-led main menu tabs lesson" /></button><div class="caption">Main Menu Tabs</div></div>
-    <div class="shot"><button onclick="openLightbox(this)"><img src="../assets/game-workshop-2/56149f8e-3b41-4267-bc6f-427a28bdd122.png" alt="Instructor-led Blueprints lesson" /></button><div class="caption">Blueprints</div></div>
-    <div class="shot wide"><button onclick="openLightbox(this)"><img src="../assets/game-workshop-2/00ed4021-8cfb-4b06-b2f7-0d819ece2936.png" alt="Instructor-led Blueprint pins lesson" /></button><div class="caption">Blueprint Pins</div></div>
+<section class="section alt" id="comparison">
+  <div class="container">
+    <div class="kicker">Format Comparison</div>
+    <h2>Same lesson. Different delivery.</h2>
+    <p class="intro">The Outliner lesson is a clear example: the instructional content stays consistent, while the amount of text, visual hierarchy, and classroom emphasis changes based on how the material will be used.</p>
+
+    <div class="compare">
+      <article class="shot">
+        <div class="shot-head"><strong>Self-Guided Course Guide</strong><span>Independent reference</span></div>
+        <button class="media-button" onclick="openLightbox(this)" aria-label="Enlarge self-guided Outliner lesson">
+          <div class="media-frame"><img src="../assets/game-workshop-2/ad8fcce9-2fcc-4b52-ab77-eb47ddd42b99.png" alt="Self-guided course guide page explaining the Unreal Engine Outliner" /></div>
+        </button>
+        <div class="caption">More reading space, direct explanation, and a screenshot placed beside the text for individual reference.</div>
+      </article>
+
+      <article class="shot">
+        <div class="shot-head"><strong>Instructor-Led Presentation</strong><span>Live classroom delivery</span></div>
+        <button class="media-button" onclick="openLightbox(this)" aria-label="Enlarge instructor-led Outliner lesson">
+          <div class="media-frame"><img src="../assets/game-workshop-2/465e5a67-2916-4441-85dc-ee1f62795635.png" alt="Instructor-led presentation slide explaining the Unreal Engine Outliner" /></div>
+        </button>
+        <div class="caption">Condensed wording, stronger hierarchy, and a larger visual treatment designed to support an instructor speaking to the room.</div>
+      </article>
+    </div>
   </div>
-</div></section>
+</section>
 
-<section class="section" id="guide"><div class="container">
-  <h2>Self-Guided Course Guide</h2>
-  <p class="intro">Designed for independent learning and reference, with more detailed written explanations paired with screenshots so students can follow the material without a live instructor beside them.</p>
-  <div class="gallery">
-    <div class="shot"><button onclick="openLightbox(this)"><img src="../assets/game-workshop-2/3cbbfb27-aaac-44fc-84e9-9aab9e16d9b1.png" alt="Self-guided first person template lesson" /></button><div class="caption">First Person Template / getting started</div></div>
-    <div class="shot"><button onclick="openLightbox(this)"><img src="../assets/game-workshop-2/ad8fcce9-2fcc-4b52-ab77-eb47ddd42b99.png" alt="Self-guided Outliner lesson" /></button><div class="caption">Outliner</div></div>
-    <div class="shot"><button onclick="openLightbox(this)"><img src="../assets/game-workshop-2/2eab1f86-1051-44ec-8e7b-2577f560c3cf.png" alt="Self-guided main menu tabs lesson" /></button><div class="caption">Main Menu Tabs</div></div>
-    <div class="shot"><button onclick="openLightbox(this)"><img src="../assets/game-workshop-2/8a7b57b2-f2c6-470b-bb1c-38f020932b74.png" alt="Self-guided Blueprints lesson" /></button><div class="caption">Blueprints</div></div>
-    <div class="shot wide"><button onclick="openLightbox(this)"><img src="../assets/game-workshop-2/17ce1826-41ae-4438-89e1-a607e65d347a.png" alt="Self-guided Blueprint pins lesson" /></button><div class="caption">Blueprint Pins</div></div>
+<section class="section" id="presentation">
+  <div class="container">
+    <div class="kicker">Format 01</div>
+    <h2>Instructor-Led Presentation</h2>
+    <p class="intro">This version is designed to be shown while the instructor leads the class. The slides keep the main idea visible, use large Unreal Engine screenshots, and add game-inspired styling without removing the technical content.</p>
+
+    <div class="format-summary">
+      <span class="summary-pill">Live delivery</span>
+      <span class="summary-pill">Condensed explanations</span>
+      <span class="summary-pill">Large visual references</span>
+      <span class="summary-pill">Game-inspired presentation design</span>
+    </div>
+
+    <div class="gallery">
+      <article class="shot">
+        <div class="shot-head"><strong>Getting Started</strong><span>First Person Template</span></div>
+        <button class="media-button" onclick="openLightbox(this)" aria-label="Enlarge getting started presentation slide">
+          <div class="media-frame"><img src="../assets/game-workshop-2/e04d8460-79eb-4a5d-be46-6ec5302b0f1a.png" alt="Presentation slide introducing the Unreal Engine first person template and Blueprints" /></div>
+        </button>
+        <div class="caption"><strong>Purpose:</strong> establish the starting template and introduce Blueprints before students begin working in the editor.</div>
+      </article>
+
+      <article class="shot">
+        <div class="shot-head"><strong>Outliner</strong><span>Editor navigation</span></div>
+        <button class="media-button" onclick="openLightbox(this)" aria-label="Enlarge Outliner presentation slide">
+          <div class="media-frame"><img src="../assets/game-workshop-2/465e5a67-2916-4441-85dc-ee1f62795635.png" alt="Presentation slide explaining the Unreal Engine Outliner" /></div>
+        </button>
+        <div class="caption"><strong>Purpose:</strong> connect the panel name to its location and its role in organizing game objects.</div>
+      </article>
+
+      <article class="shot">
+        <div class="shot-head"><strong>Main Menu Tabs</strong><span>Interface orientation</span></div>
+        <button class="media-button" onclick="openLightbox(this)" aria-label="Enlarge main menu tabs presentation slide">
+          <div class="media-frame"><img src="../assets/game-workshop-2/05df902b-1bfe-4791-aab0-31588f4c6f39.png" alt="Presentation slide explaining Unreal Engine main menu tabs" /></div>
+        </button>
+        <div class="caption"><strong>Purpose:</strong> help students recognize where essential editor tools and settings are located.</div>
+      </article>
+
+      <article class="shot">
+        <div class="shot-head"><strong>Blueprints</strong><span>Visual scripting</span></div>
+        <button class="media-button" onclick="openLightbox(this)" aria-label="Enlarge Blueprints presentation slide">
+          <div class="media-frame"><img src="../assets/game-workshop-2/56149f8e-3b41-4267-bc6f-427a28bdd122.png" alt="Presentation slide explaining Unreal Engine Blueprints with a camera input example" /></div>
+        </button>
+        <div class="caption"><strong>Purpose:</strong> translate an unfamiliar scripting system into a plain-language explanation tied to a real Blueprint example.</div>
+      </article>
+
+      <article class="shot">
+        <div class="shot-head"><strong>Blueprint Pins</strong><span>Node connections</span></div>
+        <button class="media-button" onclick="openLightbox(this)" aria-label="Enlarge Blueprint pins presentation slide">
+          <div class="media-frame"><img src="../assets/game-workshop-2/00ed4021-8cfb-4b06-b2f7-0d819ece2936.png" alt="Presentation slide explaining execution pins and data pins in Unreal Engine Blueprints" /></div>
+        </button>
+        <div class="caption"><strong>Purpose:</strong> separate execution flow from data flow and visually reinforce the two pin types.</div>
+      </article>
+    </div>
   </div>
-</div></section>
+</section>
 
-<section class="section"><div class="container">
-  <div class="notice"><strong>About these samples</strong><p>Selected excerpts are shown for portfolio purposes only. The complete course, presentation, source files, and instructional materials are not publicly available because the work is subject to confidentiality, usage, and institutional restrictions.</p></div>
-</div></section>
+<section class="section alt" id="guide">
+  <div class="container">
+    <div class="kicker">Format 02</div>
+    <h2>Self-Guided Course Guide</h2>
+    <p class="intro">This version is designed for students to read and reference independently. It keeps the same visual support while allowing more room for written explanation, so a learner can work through the lesson without relying on a live presentation.</p>
+
+    <div class="format-summary">
+      <span class="summary-pill">Independent learning</span>
+      <span class="summary-pill">Expanded written guidance</span>
+      <span class="summary-pill">Screenshots beside explanations</span>
+      <span class="summary-pill">Reference-friendly layout</span>
+    </div>
+
+    <div class="gallery">
+      <article class="shot">
+        <div class="shot-head"><strong>Getting Started</strong><span>First Person Template</span></div>
+        <button class="media-button" onclick="openLightbox(this)" aria-label="Enlarge getting started course guide page">
+          <div class="media-frame"><img src="../assets/game-workshop-2/3cbbfb27-aaac-44fc-84e9-9aab9e16d9b1.png" alt="Self-guided course guide page introducing the Unreal Engine first person template and Blueprints" /></div>
+        </button>
+        <div class="caption"><strong>Purpose:</strong> give students enough written context to begin the project and understand what they should see when Unreal Engine opens.</div>
+      </article>
+
+      <article class="shot">
+        <div class="shot-head"><strong>Outliner</strong><span>Editor navigation</span></div>
+        <button class="media-button" onclick="openLightbox(this)" aria-label="Enlarge Outliner course guide page">
+          <div class="media-frame"><img src="../assets/game-workshop-2/ad8fcce9-2fcc-4b52-ab77-eb47ddd42b99.png" alt="Self-guided course guide page explaining the Unreal Engine Outliner" /></div>
+        </button>
+        <div class="caption"><strong>Purpose:</strong> pair the panel description with the exact interface area students need to locate.</div>
+      </article>
+
+      <article class="shot">
+        <div class="shot-head"><strong>Main Menu Tabs</strong><span>Interface orientation</span></div>
+        <button class="media-button" onclick="openLightbox(this)" aria-label="Enlarge main menu tabs course guide page">
+          <div class="media-frame"><img src="../assets/game-workshop-2/2eab1f86-1051-44ec-8e7b-2577f560c3cf.png" alt="Self-guided course guide page explaining Unreal Engine main menu tabs" /></div>
+        </button>
+        <div class="caption"><strong>Purpose:</strong> provide a simple reference students can return to while navigating the editor.</div>
+      </article>
+
+      <article class="shot">
+        <div class="shot-head"><strong>Blueprints</strong><span>Visual scripting</span></div>
+        <button class="media-button" onclick="openLightbox(this)" aria-label="Enlarge Blueprints course guide page">
+          <div class="media-frame"><img src="../assets/game-workshop-2/8a7b57b2-f2c6-470b-bb1c-38f020932b74.png" alt="Self-guided course guide page explaining Unreal Engine Blueprints with a camera input example" /></div>
+        </button>
+        <div class="caption"><strong>Purpose:</strong> break down what Blueprints control before students begin reading node-based logic.</div>
+      </article>
+
+      <article class="shot">
+        <div class="shot-head"><strong>Blueprint Pins</strong><span>Node connections</span></div>
+        <button class="media-button" onclick="openLightbox(this)" aria-label="Enlarge Blueprint pins course guide page">
+          <div class="media-frame"><img src="../assets/game-workshop-2/17ce1826-41ae-4438-89e1-a607e65d347a.png" alt="Self-guided course guide page explaining execution pins and data pins in Unreal Engine Blueprints" /></div>
+        </button>
+        <div class="caption"><strong>Purpose:</strong> give students a readable definition of each pin type alongside enlarged visual examples.</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="notice">
+      <strong>Selected portfolio excerpts</strong>
+      <p>These screenshots are limited samples provided to demonstrate the instructional design and presentation approach. The complete course, presentation, source files, and supporting instructional materials are not publicly available because they are subject to confidentiality, usage, and institutional restrictions.</p>
+    </div>
+  </div>
+</section>
 </main>
-<footer><div class="container">© 2026 Jerome • Selected portfolio excerpts only</div></footer>
 
-<div class="lightbox" id="lightbox" onclick="closeLightbox(event)"><button aria-label="Close" onclick="closeLightbox(event)">×</button><img id="lightboxImg" alt="" /></div>
+<footer>
+  <div class="container footer-inner">
+    <span>© 2026 Jerome • Selected portfolio excerpts only</span>
+    <a class="top-link" href="#top">Back to top ↑</a>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Expanded project screenshot" onclick="closeLightbox(event)">
+  <button class="lightbox-close" aria-label="Close enlarged image" onclick="closeLightbox(event)">×</button>
+  <img id="lightboxImg" alt="" />
+  <div class="lightbox-hint">Click outside the image or press Esc to close</div>
+</div>
+
 <script>
-function openLightbox(button){const img=button.querySelector('img');const box=document.getElementById('lightbox');const target=document.getElementById('lightboxImg');target.src=img.src;target.alt=img.alt;box.classList.add('open');document.body.style.overflow='hidden'}
-function closeLightbox(e){if(e.target.id==='lightboxImg')return;document.getElementById('lightbox').classList.remove('open');document.body.style.overflow=''}
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow=''}})
+function openLightbox(button){
+  const img=button.querySelector('img');
+  const box=document.getElementById('lightbox');
+  const target=document.getElementById('lightboxImg');
+  target.src=img.src;
+  target.alt=img.alt;
+  box.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(e){
+  if(e && e.target && e.target.id==='lightboxImg') return;
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow='';
+  }
+});
 </script>
 </body>
 </html>
