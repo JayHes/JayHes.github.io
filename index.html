@@ -6,89 +6,630 @@
   <title>Jerome | Learning & Development Portfolio</title>
   <meta name="description" content="Jerome's portfolio featuring learning and development, technical training, curriculum design, and Unreal Engine projects." />
   <style>
-    :root{--bg:#0b0f14;--bg-soft:#111720;--card:#151c26;--card-hover:#192331;--border:#263241;--text:#f5f7fa;--muted:#9aa7b5;--accent:#7c5cff;--accent2:#2dd4bf;--accent-soft:rgba(124,92,255,.14);--max:1150px;--r:18px}
-    *{box-sizing:border-box;margin:0;padding:0} html{scroll-behavior:smooth}
-    body{font-family:Inter,Arial,Helvetica,sans-serif;background:radial-gradient(circle at top left,rgba(124,92,255,.12),transparent 28%),radial-gradient(circle at top right,rgba(45,212,191,.08),transparent 25%),var(--bg);color:var(--text);line-height:1.6}
-    a{color:inherit;text-decoration:none}.container{width:min(92%,var(--max));margin:auto}.section{padding:90px 0}
-    nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(16px);background:rgba(11,15,20,.78);border-bottom:1px solid rgba(255,255,255,.05)}
-    .nav-inner{width:min(92%,var(--max));margin:auto;min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}.logo{font-size:1.25rem;font-weight:800}.logo span{color:var(--accent)}.nav-links{display:flex;gap:24px}.nav-links a{color:var(--muted);font-size:.95rem}.nav-links a:hover{color:var(--text)}
-    .hero{min-height:calc(100vh - 72px);display:flex;align-items:center;padding:70px 0 85px}.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:60px;align-items:center}
-    .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 13px;border:1px solid rgba(124,92,255,.35);background:var(--accent-soft);border-radius:999px;color:#cfc4ff;font-size:.9rem;margin-bottom:22px}
-    .dot{width:10px;height:10px;background:var(--accent2);border-radius:50%;box-shadow:0 0 18px rgba(45,212,191,.6)}
-    h1{font-size:clamp(3rem,7vw,5.5rem);line-height:.98;letter-spacing:-.055em}.hero h1 span{color:var(--accent)}
-    .hero-copy{margin-top:24px;max-width:680px;color:var(--muted);font-size:1.08rem}.hero-actions,.contact-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
-    .button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border-radius:12px;border:1px solid transparent;font-weight:700;transition:.2s}.button-primary{background:var(--accent);color:#fff}.button-secondary{border-color:var(--border);background:rgba(255,255,255,.025)}.button:hover{transform:translateY(-2px)}
-    .feature{background:linear-gradient(145deg,rgba(124,92,255,.11),transparent 50%),var(--card);border:1px solid var(--border);border-radius:28px;overflow:hidden;box-shadow:0 25px 60px rgba(0,0,0,.28)}
-    .feature img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}.feature-body{padding:24px}.feature-label{color:var(--accent2);font-size:.82rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em}.feature h3{font-size:1.65rem;margin:8px 0}.feature p{color:var(--muted)}
-    .section-title{font-size:clamp(2rem,4vw,3rem);margin-bottom:14px;letter-spacing:-.03em}.section-subtitle{max-width:720px;color:var(--muted);margin-bottom:38px}
-    .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}.project-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:.25s}.project-card:hover{transform:translateY(-5px);border-color:#3f5065;background:var(--card-hover)}
-    .project-image{height:260px;background:#111720;overflow:hidden}.project-image img{width:100%;height:100%;object-fit:cover}.project-content{padding:24px;display:flex;flex-direction:column;flex:1}.project-content h3{font-size:1.35rem;margin-bottom:10px}.project-content p{color:var(--muted);margin-bottom:18px;flex:1}.tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}.tag{font-size:.78rem;padding:6px 9px;border-radius:8px;background:rgba(124,92,255,.12);color:#cfc4ff;border:1px solid rgba(124,92,255,.18)}.project-link{font-weight:800}
-    .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}.skill-card,.about-stat{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:26px}.skill-card h3{margin-bottom:16px}.skill-list{display:flex;flex-wrap:wrap;gap:10px}.skill-pill{border:1px solid var(--border);background:var(--bg-soft);color:#d6dde5;padding:9px 12px;border-radius:10px;font-size:.9rem}
-    .about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px}.about-stat strong{display:block;font-size:2rem;margin-bottom:6px}.about-stat span,.about-copy p{color:var(--muted)}.about-copy p{margin-bottom:18px}
-    .contact-box{background:linear-gradient(135deg,rgba(124,92,255,.16),rgba(45,212,191,.07)),var(--card);border:1px solid var(--border);border-radius:24px;padding:42px;display:flex;justify-content:space-between;gap:30px;align-items:center}.contact-box h2{font-size:clamp(2rem,4vw,3.3rem);line-height:1.05;margin-bottom:12px}.contact-box p{color:var(--muted);max-width:640px}.resume-note{margin-top:12px;color:#d8deea!important}
-    footer{border-top:1px solid rgba(255,255,255,.05);padding:28px 0;color:var(--muted);font-size:.9rem}.footer-inner{width:min(92%,var(--max));margin:auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-    @media(max-width:900px){.hero-grid,.about-grid,.skills-grid,.projects-grid{grid-template-columns:1fr}.hero{min-height:auto}.contact-box{flex-direction:column;align-items:flex-start}}
-    @media(max-width:650px){.nav-links{display:none}.section{padding:70px 0}.hero h1{font-size:3.4rem}.contact-actions,.contact-actions .button{width:100%}}
+    :root{
+      --bg:#050505;
+      --bg-soft:#0b0b0c;
+      --panel:#111214;
+      --panel-2:#17181b;
+      --line:#2a2b2f;
+      --line-bright:#45474d;
+      --text:#f5f5f3;
+      --muted:#a6a7ab;
+      --silver:#c9cbd0;
+      --silver-2:#8c8f96;
+      --white:#ffffff;
+      --max:1180px;
+      --radius:24px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,Arial,Helvetica,sans-serif;
+      background:
+        radial-gradient(circle at 50% -10%,rgba(255,255,255,.09),transparent 28%),
+        linear-gradient(180deg,#060606 0%,#050505 100%);
+      color:var(--text);
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    img{max-width:100%;display:block}
+    .container{width:min(92%,var(--max));margin:auto}
+    .section{padding:108px 0}
+    .rule{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent)}
+
+    nav{
+      position:sticky;top:0;z-index:100;
+      background:rgba(5,5,5,.82);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav-inner{
+      width:min(92%,var(--max));margin:auto;min-height:74px;
+      display:flex;align-items:center;justify-content:space-between;gap:24px;
+    }
+    .logo{font-size:1.08rem;font-weight:800;letter-spacing:.03em}
+    .logo span{color:var(--silver)}
+    .nav-links{display:flex;gap:28px}
+    .nav-links a{
+      color:var(--muted);font-size:.9rem;position:relative;padding:8px 0;
+      transition:color .2s ease;
+    }
+    .nav-links a:after{
+      content:"";position:absolute;left:0;right:100%;bottom:2px;height:1px;background:var(--silver);
+      transition:right .25s ease;
+    }
+    .nav-links a:hover{color:var(--white)}
+    .nav-links a:hover:after{right:0}
+
+    .hero{
+      min-height:calc(100vh - 74px);
+      display:flex;align-items:center;
+      padding:92px 0 98px;
+      position:relative;
+    }
+    .hero:before{
+      content:"";
+      position:absolute;
+      width:540px;height:540px;
+      right:-140px;top:30px;
+      background:radial-gradient(circle,rgba(255,255,255,.08),transparent 66%);
+      pointer-events:none;
+    }
+    .hero-grid{
+      width:100%;display:grid;grid-template-columns:1.15fr .85fr;
+      gap:72px;align-items:center;
+    }
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:9px;
+      color:var(--silver);font-size:.8rem;font-weight:700;
+      letter-spacing:.11em;text-transform:uppercase;margin-bottom:24px;
+    }
+    .eyebrow:before{
+      content:"";width:34px;height:1px;background:var(--silver-2);
+    }
+    h1{
+      font-size:clamp(3.6rem,7.7vw,7rem);
+      line-height:.9;letter-spacing:-.065em;
+      max-width:760px;
+    }
+    .hero h1 .ghost{
+      color:transparent;
+      -webkit-text-stroke:1px #7d7f84;
+      text-stroke:1px #7d7f84;
+    }
+    .hero-copy{
+      margin-top:28px;max-width:650px;color:var(--muted);
+      font-size:1.06rem;
+    }
+    .hero-actions,.contact-actions{
+      display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;
+    }
+    .button{
+      display:inline-flex;align-items:center;justify-content:center;
+      min-height:48px;padding:0 20px;border-radius:999px;
+      border:1px solid var(--line-bright);
+      font-weight:700;font-size:.92rem;
+      transition:transform .2s ease,border-color .2s ease,background .2s ease,color .2s ease;
+    }
+    .button-primary{background:#f2f2f0;color:#080808;border-color:#f2f2f0}
+    .button-secondary{background:transparent;color:var(--text)}
+    .button:hover{transform:translateY(-2px)}
+    .button-secondary:hover{border-color:#777a80;background:rgba(255,255,255,.035)}
+
+    .hero-card{
+      border:1px solid var(--line);
+      border-radius:30px;
+      background:
+        linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.015)),
+        #0a0a0b;
+      padding:14px;
+      box-shadow:0 30px 80px rgba(0,0,0,.45);
+      transform:rotate(1.25deg);
+      transition:transform .35s ease,border-color .35s ease;
+    }
+    .hero-card:hover{transform:rotate(0deg) translateY(-4px);border-color:#505158}
+    .hero-card img{
+      width:100%;aspect-ratio:16/10;object-fit:cover;
+      border-radius:20px;border:1px solid #202124;
+      filter:saturate(.68) contrast(1.05);
+    }
+    .hero-card-body{padding:20px 10px 10px}
+    .hero-card-label{
+      color:var(--silver-2);font-size:.72rem;
+      font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+    }
+    .hero-card h3{font-size:1.35rem;margin:6px 0 4px}
+    .hero-card p{color:var(--muted);font-size:.94rem}
+
+    .section-header{
+      display:flex;justify-content:space-between;align-items:end;gap:30px;
+      margin-bottom:42px;
+    }
+    .section-kicker{
+      color:var(--silver-2);font-size:.74rem;font-weight:800;
+      letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px;
+    }
+    .section-title{
+      font-size:clamp(2.5rem,5vw,4.4rem);
+      line-height:.98;letter-spacing:-.05em;
+    }
+    .section-subtitle{max-width:560px;color:var(--muted)}
+
+    .project-stage{
+      position:relative;
+      min-height:610px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      padding:32px 0 84px;
+    }
+    .project-deck{
+      width:min(100%,980px);
+      height:480px;
+      position:relative;
+      perspective:1400px;
+    }
+    .project-card{
+      position:absolute;
+      top:0;left:50%;
+      width:min(78vw,700px);
+      height:460px;
+      transform-origin:center bottom;
+      border:1px solid var(--line);
+      border-radius:28px;
+      overflow:hidden;
+      background:#0d0d0e;
+      box-shadow:0 28px 80px rgba(0,0,0,.58);
+      transition:
+        transform .6s cubic-bezier(.2,.8,.2,1),
+        opacity .45s ease,
+        filter .45s ease,
+        border-color .3s ease;
+    }
+    .project-card[data-pos="0"]{
+      transform:translateX(-50%) translateY(0) scale(1) rotate(0deg);
+      z-index:5;opacity:1;filter:none;
+      border-color:#4b4d52;
+    }
+    .project-card[data-pos="-1"]{
+      transform:translateX(-84%) translateY(30px) scale(.88) rotate(-5deg);
+      z-index:3;opacity:.66;filter:brightness(.72);
+    }
+    .project-card[data-pos="1"]{
+      transform:translateX(-16%) translateY(30px) scale(.88) rotate(5deg);
+      z-index:3;opacity:.66;filter:brightness(.72);
+    }
+    .project-card[data-pos="-2"]{
+      transform:translateX(-106%) translateY(60px) scale(.76) rotate(-8deg);
+      z-index:1;opacity:.25;filter:brightness(.5);
+    }
+    .project-card[data-pos="2"]{
+      transform:translateX(6%) translateY(60px) scale(.76) rotate(8deg);
+      z-index:1;opacity:.25;filter:brightness(.5);
+    }
+    .project-visual{
+      height:58%;position:relative;overflow:hidden;
+      background:
+        linear-gradient(135deg,#1a1b1f,#0b0b0c 70%);
+      border-bottom:1px solid var(--line);
+    }
+    .project-visual img{
+      width:100%;height:100%;object-fit:cover;
+      filter:saturate(.62) contrast(1.06);
+    }
+    .project-number{
+      position:absolute;right:20px;top:14px;
+      font-size:4.8rem;line-height:1;
+      font-weight:800;letter-spacing:-.08em;
+      color:rgba(255,255,255,.08);
+      user-select:none;
+    }
+    .project-placeholder{
+      height:100%;display:flex;align-items:end;padding:28px;
+      background:
+        linear-gradient(145deg,rgba(255,255,255,.08),transparent 45%),
+        radial-gradient(circle at 70% 20%,rgba(255,255,255,.07),transparent 22%),
+        #0e0f11;
+    }
+    .project-placeholder span{
+      font-size:clamp(2.5rem,5vw,4.5rem);
+      line-height:.92;letter-spacing:-.06em;
+      color:#c9cbd0;
+    }
+    .project-content{height:42%;padding:24px 26px;display:flex;flex-direction:column}
+    .project-meta{
+      color:var(--silver-2);font-size:.72rem;text-transform:uppercase;
+      letter-spacing:.1em;font-weight:800;margin-bottom:7px;
+    }
+    .project-content h3{font-size:1.45rem;letter-spacing:-.02em}
+    .project-content p{
+      color:var(--muted);font-size:.92rem;margin-top:6px;
+      max-width:620px;flex:1;
+    }
+    .project-link{
+      font-weight:800;font-size:.9rem;color:var(--text);
+      align-self:flex-start;
+    }
+
+    .deck-controls{
+      display:flex;align-items:center;justify-content:center;gap:14px;
+      margin-top:-36px;
+    }
+    .deck-button{
+      width:48px;height:48px;border-radius:50%;
+      border:1px solid var(--line-bright);
+      background:#0b0b0c;color:var(--text);
+      cursor:pointer;font-size:1.2rem;
+      transition:.2s ease;
+    }
+    .deck-button:hover{background:#17181a;border-color:#71737a}
+    .deck-dots{display:flex;gap:8px}
+    .deck-dot{
+      width:8px;height:8px;border-radius:50%;
+      border:0;background:#3b3d42;cursor:pointer;padding:0;
+      transition:.2s ease;
+    }
+    .deck-dot.active{width:26px;border-radius:999px;background:#d0d1d4}
+
+    .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .skill-card,.about-panel{
+      background:linear-gradient(145deg,rgba(255,255,255,.035),transparent),var(--panel);
+      border:1px solid var(--line);border-radius:var(--radius);padding:30px;
+    }
+    .skill-card h3{font-size:1.2rem;margin-bottom:18px}
+    .skill-list{display:flex;flex-wrap:wrap;gap:9px}
+    .skill-pill{
+      border:1px solid #34363b;background:#0d0d0e;color:#d7d8dc;
+      padding:9px 12px;border-radius:999px;font-size:.86rem;
+    }
+
+    .about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:start}
+    .about-big{
+      font-size:clamp(2.3rem,4vw,4rem);
+      line-height:1;letter-spacing:-.05em;color:#d9dade;
+    }
+    .about-copy p{color:var(--muted);margin-bottom:18px;font-size:1.03rem}
+
+    .contact-box{
+      border:1px solid var(--line-bright);
+      border-radius:30px;padding:48px;
+      background:
+        radial-gradient(circle at 90% 10%,rgba(255,255,255,.08),transparent 30%),
+        linear-gradient(145deg,#121214,#0a0a0b);
+      display:flex;justify-content:space-between;gap:32px;align-items:center;
+    }
+    .contact-box h2{
+      font-size:clamp(2.6rem,5vw,4.7rem);
+      line-height:.95;letter-spacing:-.055em;margin-bottom:16px;
+    }
+    .contact-box p{color:var(--muted);max-width:620px}
+    .resume-note{margin-top:10px;color:#d6d7da!important}
+
+    .reveal{
+      opacity:0;
+      transform:translateY(28px);
+      transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1);
+    }
+    .reveal.visible{opacity:1;transform:none}
+
+    footer{
+      border-top:1px solid rgba(255,255,255,.06);
+      padding:28px 0;color:var(--muted);font-size:.88rem;
+    }
+    .footer-inner{
+      width:min(92%,var(--max));margin:auto;
+      display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+    }
+
+    @media(max-width:960px){
+      .hero-grid,.about-grid{grid-template-columns:1fr}
+      .hero{min-height:auto}
+      .hero-card{max-width:720px}
+      .section-header{align-items:start;flex-direction:column}
+      .project-stage{min-height:560px}
+      .project-deck{height:440px}
+      .project-card{height:420px;width:min(82vw,650px)}
+      .skills-grid{grid-template-columns:1fr}
+      .contact-box{flex-direction:column;align-items:flex-start}
+    }
+
+    @media(max-width:650px){
+      .nav-links{display:none}
+      .section{padding:82px 0}
+      .hero{padding:72px 0 82px}
+      h1{font-size:3.65rem}
+      .hero-grid{gap:44px}
+      .project-stage{min-height:500px;padding-top:16px}
+      .project-deck{height:390px}
+      .project-card{
+        width:86vw;height:370px;border-radius:22px;
+      }
+      .project-card[data-pos="-1"]{transform:translateX(-73%) translateY(22px) scale(.88) rotate(-4deg)}
+      .project-card[data-pos="1"]{transform:translateX(-27%) translateY(22px) scale(.88) rotate(4deg)}
+      .project-card[data-pos="-2"]{transform:translateX(-88%) translateY(42px) scale(.76) rotate(-7deg)}
+      .project-card[data-pos="2"]{transform:translateX(-12%) translateY(42px) scale(.76) rotate(7deg)}
+      .project-visual{height:52%}
+      .project-content{height:48%;padding:18px 20px}
+      .project-content h3{font-size:1.18rem}
+      .project-content p{font-size:.84rem}
+      .project-number{font-size:3.4rem}
+      .contact-box{padding:32px 24px}
+      .hero-actions .button,.contact-actions .button{width:100%}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      *{scroll-behavior:auto!important}
+      .reveal{opacity:1;transform:none;transition:none}
+      .project-card,.button,.hero-card,.nav-links a:after{transition:none}
+    }
   </style>
 </head>
 <body>
-<nav><div class="nav-inner"><a href="#" class="logo">Jerome<span>.</span></a><div class="nav-links"><a href="#about">About</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a></div></div></nav>
-<main>
-<section class="hero"><div class="container hero-grid">
-  <div>
-    <div class="eyebrow"><span class="dot"></span>Learning & Development • Technical Training</div>
-    <h1>I turn technical ideas into <span>clear, practical learning.</span></h1>
-    <p class="hero-copy">I'm Jerome, a learning and development professional with experience designing curriculum, creating technical training materials, teaching game-development concepts, and helping people work confidently with unfamiliar systems.</p>
-    <div class="hero-actions"><a href="#projects" class="button button-primary">View My Projects</a><a href="https://github.com/JayHes" target="_blank" rel="noopener noreferrer" class="button button-secondary">View GitHub</a></div>
-  </div>
-  <a class="feature" href="projects/game-workshop-2.html">
-    <img src="assets/game-workshop-2/d5db0819-b2e0-47e4-8ed8-fff7b01d98fd.png" alt="Game Workshop 2 Unreal Engine presentation cover" />
-    <div class="feature-body"><div class="feature-label">Featured Project</div><h3>Unreal Engine Game Workshop 2</h3><p>A university game-development curriculum built for both live classroom instruction and independent student learning.</p></div>
-  </a>
-</div></section>
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="logo">JEROME<span>.</span></a>
+      <div class="nav-links">
+        <a href="#projects">Work</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-<section class="section" id="projects"><div class="container">
-  <h2 class="section-title">Featured Projects</h2>
-  <p class="section-subtitle">Selected work showing how I combine curriculum design, technical instruction, visual communication, and hands-on development.</p>
-  <div class="projects-grid">
-    <article class="project-card">
-      <div class="project-image"><img src="assets/game-workshop-2/d5db0819-b2e0-47e4-8ed8-fff7b01d98fd.png" alt="Unreal Engine Game Workshop 2 cover" /></div>
-      <div class="project-content"><h3>Unreal Engine Game Workshop 2</h3><p>Designed Unreal Engine learning material for a university summer program, adapting the same core lessons into an instructor-led presentation and a self-guided course guide.</p><div class="tags"><span class="tag">Curriculum Design</span><span class="tag">Unreal Engine</span><span class="tag">Technical Training</span><span class="tag">Visual Instruction</span></div><a href="projects/game-workshop-2.html" class="project-link">View Project →</a></div>
-    </article>
-    <article class="project-card">
-      <div class="project-content"><h3>Playable Unreal Game Project</h3><p>Implemented core game systems including menus, UI, health, attacks, damage, death, victory, and credits in collaboration with a professor who created the art assets.</p><div class="tags"><span class="tag">Unreal Engine</span><span class="tag">Game Systems</span><span class="tag">UI</span></div><span class="project-link">Case study coming soon</span></div>
-    </article>
-    <article class="project-card">
-      <div class="project-content"><h3>Unreal Lighting Course</h3><p>Created instructional content explaining Unreal Engine lighting concepts and light types, supported by presentation materials and visual examples.</p><div class="tags"><span class="tag">Technical Training</span><span class="tag">Unreal Engine</span><span class="tag">Visual Learning</span></div><span class="project-link">Case study coming soon</span></div>
-    </article>
-    <article class="project-card">
-      <div class="project-content"><h3>Workflow & Learning Tools</h3><p>Built practical tools and study materials to simplify workflows, organize information, and help learners identify strengths and areas needing more practice.</p><div class="tags"><span class="tag">Process Improvement</span><span class="tag">Training</span><span class="tag">Microsoft Tools</span></div><span class="project-link">Case study coming soon</span></div>
-    </article>
-  </div>
-</div></section>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="eyebrow">Learning & Development • Technical Training</div>
+          <h1>I turn technical ideas into <span class="ghost">clear learning.</span></h1>
+          <p class="hero-copy">I'm Jerome, a learning and development professional focused on curriculum design, technical training, visual instruction, and hands-on technical projects.</p>
+          <div class="hero-actions">
+            <a href="#projects" class="button button-primary">View My Work</a>
+            <a href="https://github.com/JayHes" target="_blank" rel="noopener noreferrer" class="button button-secondary">GitHub</a>
+          </div>
+        </div>
 
-<section class="section" id="skills"><div class="container">
-  <h2 class="section-title">Skills & Tools</h2>
-  <p class="section-subtitle">A mix of learning design, communication, technical instruction, and software tools.</p>
-  <div class="skills-grid">
-    <div class="skill-card"><h3>Learning & Development</h3><div class="skill-list"><span class="skill-pill">Training & Curriculum Development</span><span class="skill-pill">Technical Instruction</span><span class="skill-pill">Visual Learning Materials</span><span class="skill-pill">Coaching & Mentorship</span><span class="skill-pill">Process Improvement</span><span class="skill-pill">Customer Communication</span></div></div>
-    <div class="skill-card"><h3>Technical & Productivity</h3><div class="skill-list"><span class="skill-pill">Unreal Engine</span><span class="skill-pill">Unity</span><span class="skill-pill">Microsoft Office</span><span class="skill-pill">Google Workspace</span><span class="skill-pill">CRM & Ticketing Platforms</span><span class="skill-pill">GitHub</span></div></div>
-  </div>
-</div></section>
+        <a class="hero-card reveal" href="projects/game-workshop-2.html">
+          <img src="assets/game-workshop-2/d5db0819-b2e0-47e4-8ed8-fff7b01d98fd.png" alt="Unreal Engine Game Workshop 2 cover" />
+          <div class="hero-card-body">
+            <div class="hero-card-label">Featured Case Study</div>
+            <h3>Unreal Engine Game Workshop 2</h3>
+            <p>University curriculum designed for instructor-led and self-guided learning.</p>
+          </div>
+        </a>
+      </div>
+    </section>
 
-<section class="section" id="about"><div class="container">
-  <h2 class="section-title">About Me</h2>
-  <div class="about-grid">
-    <div class="about-stat"><strong>Teach it clearly.</strong><span>I focus on making unfamiliar or technical information easier to understand and use.</span></div>
-    <div class="about-copy"><p>My background combines customer experience, curriculum design, technical training, and hands-on project work.</p><p>I enjoy taking information that can feel overwhelming at first and turning it into practical steps, useful visuals, and learning material people can actually follow.</p><p>My project work includes university game-development curriculum, Unreal and Unity learning materials, technical coaching, workflow improvement, and playable Unreal Engine systems.</p></div>
-  </div>
-</div></section>
+    <div class="rule"></div>
 
-<section class="section" id="contact"><div class="container"><div class="contact-box">
-  <div><h2>Let's connect.</h2><p>If you'd like to discuss my work, training experience, or technical projects, you can find me on GitHub or request my resume.</p><p class="resume-note">Resume available upon request.</p></div>
-  <div class="contact-actions"><a href="https://github.com/JayHes" target="_blank" rel="noopener noreferrer" class="button button-primary">GitHub</a><a href="mailto:jeromehester93@gmail.com?subject=Resume%20Request" class="button button-secondary">Request My Resume</a></div>
-</div></div></section>
-</main>
-<footer><div class="footer-inner"><span>© 2026 Jerome</span><span>Built with HTML & CSS • Hosted on GitHub Pages</span></div></footer>
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <div class="section-kicker">Selected Work</div>
+            <h2 class="section-title">Projects, in motion.</h2>
+          </div>
+          <p class="section-subtitle">Use the arrows or swipe through the stack. Each project highlights a different side of my work across training, technical instruction, and development.</p>
+        </div>
+
+        <div class="project-stage reveal">
+          <div class="project-deck" id="projectDeck">
+            <article class="project-card" data-index="0">
+              <div class="project-visual">
+                <img src="assets/game-workshop-2/d5db0819-b2e0-47e4-8ed8-fff7b01d98fd.png" alt="Game Workshop 2 Unreal Engine cover" />
+                <span class="project-number">01</span>
+              </div>
+              <div class="project-content">
+                <div class="project-meta">Curriculum Design • Unreal Engine</div>
+                <h3>Game Workshop 2</h3>
+                <p>University game-development curriculum adapted into instructor-led and self-guided formats.</p>
+                <a href="projects/game-workshop-2.html" class="project-link">View Case Study →</a>
+              </div>
+            </article>
+
+            <article class="project-card" data-index="1">
+              <div class="project-visual">
+                <div class="project-placeholder"><span>PLAYABLE<br>UNREAL GAME</span></div>
+                <span class="project-number">02</span>
+              </div>
+              <div class="project-content">
+                <div class="project-meta">Game Systems • UI • Unreal Engine</div>
+                <h3>Playable Unreal Game Project</h3>
+                <p>Technical implementation of gameplay systems including menus, UI, health, attacks, damage, death, victory, and credits.</p>
+                <span class="project-link">Case study coming soon</span>
+              </div>
+            </article>
+
+            <article class="project-card" data-index="2">
+              <div class="project-visual">
+                <div class="project-placeholder"><span>UNREAL<br>LIGHTING COURSE</span></div>
+                <span class="project-number">03</span>
+              </div>
+              <div class="project-content">
+                <div class="project-meta">Technical Training • Visual Learning</div>
+                <h3>Unreal Lighting Course</h3>
+                <p>Instructional content explaining Unreal lighting concepts, light types, and practical usage through visual examples.</p>
+                <span class="project-link">Case study coming soon</span>
+              </div>
+            </article>
+
+            <article class="project-card" data-index="3">
+              <div class="project-visual">
+                <div class="project-placeholder"><span>WORKFLOW<br>& LEARNING TOOLS</span></div>
+                <span class="project-number">04</span>
+              </div>
+              <div class="project-content">
+                <div class="project-meta">Process Improvement • Training</div>
+                <h3>Workflow & Learning Tools</h3>
+                <p>Practical workflow tools and study materials designed to simplify information, reduce manual steps, and support learning.</p>
+                <span class="project-link">Case study coming soon</span>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="deck-controls reveal" aria-label="Project slideshow controls">
+          <button class="deck-button" id="prevProject" type="button" aria-label="Previous project">←</button>
+          <div class="deck-dots" id="deckDots" aria-label="Project slides"></div>
+          <button class="deck-button" id="nextProject" type="button" aria-label="Next project">→</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="rule"></div>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-kicker reveal">About</div>
+        <div class="about-grid">
+          <div class="about-panel reveal">
+            <div class="about-big">Teach it clearly.<br>Build it to be used.</div>
+          </div>
+          <div class="about-copy reveal">
+            <p>My background combines customer experience, curriculum design, technical training, and hands-on project work.</p>
+            <p>I enjoy taking unfamiliar or technical information and turning it into practical steps, useful visuals, and learning materials people can actually follow.</p>
+            <p>My work includes university game-development curriculum, Unreal and Unity learning materials, technical coaching, workflow improvement, and playable Unreal Engine systems.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="rule"></div>
+
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <div class="section-kicker">Capabilities</div>
+            <h2 class="section-title">Skills & tools.</h2>
+          </div>
+          <p class="section-subtitle">A mix of instructional design, communication, technical training, and practical software experience.</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-card reveal">
+            <h3>Learning & Development</h3>
+            <div class="skill-list">
+              <span class="skill-pill">Training & Curriculum Development</span>
+              <span class="skill-pill">Technical Instruction</span>
+              <span class="skill-pill">Visual Learning Materials</span>
+              <span class="skill-pill">Coaching & Mentorship</span>
+              <span class="skill-pill">Process Improvement</span>
+              <span class="skill-pill">Customer Communication</span>
+            </div>
+          </div>
+          <div class="skill-card reveal">
+            <h3>Technical & Productivity</h3>
+            <div class="skill-list">
+              <span class="skill-pill">Unreal Engine</span>
+              <span class="skill-pill">Unity</span>
+              <span class="skill-pill">Microsoft Office</span>
+              <span class="skill-pill">Google Workspace</span>
+              <span class="skill-pill">CRM & Ticketing Platforms</span>
+              <span class="skill-pill">GitHub</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="rule"></div>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-box reveal">
+          <div>
+            <div class="section-kicker">Contact</div>
+            <h2>Let's connect.</h2>
+            <p>If you'd like to discuss my work, training experience, or technical projects, you can find me on GitHub or request a copy of my resume.</p>
+            <p class="resume-note">Resume available upon request.</p>
+          </div>
+          <div class="contact-actions">
+            <a href="https://github.com/JayHes" target="_blank" rel="noopener noreferrer" class="button button-primary">GitHub</a>
+            <a href="mailto:jeromehester93@gmail.com?subject=Resume%20Request" class="button button-secondary">Request My Resume</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>© 2026 Jerome</span>
+      <span>Learning & Development • Technical Training</span>
+    </div>
+  </footer>
+
+  <script>
+    const cards=[...document.querySelectorAll('.project-card')];
+    const dotsWrap=document.getElementById('deckDots');
+    const prev=document.getElementById('prevProject');
+    const next=document.getElementById('nextProject');
+    let active=0;
+    let touchStartX=0;
+
+    cards.forEach((_,i)=>{
+      const dot=document.createElement('button');
+      dot.type='button';
+      dot.className='deck-dot';
+      dot.setAttribute('aria-label','Show project '+(i+1));
+      dot.addEventListener('click',()=>{active=i;renderDeck();});
+      dotsWrap.appendChild(dot);
+    });
+
+    function normalizedPos(index){
+      let diff=index-active;
+      const total=cards.length;
+      if(diff>total/2) diff-=total;
+      if(diff<-total/2) diff+=total;
+      return Math.max(-2,Math.min(2,diff));
+    }
+
+    function renderDeck(){
+      cards.forEach((card,i)=>{
+        const pos=normalizedPos(i);
+        card.dataset.pos=String(pos);
+        card.style.pointerEvents=pos===0?'auto':'none';
+        card.setAttribute('aria-hidden',pos===0?'false':'true');
+      });
+      [...dotsWrap.children].forEach((dot,i)=>dot.classList.toggle('active',i===active));
+    }
+
+    prev.addEventListener('click',()=>{active=(active-1+cards.length)%cards.length;renderDeck();});
+    next.addEventListener('click',()=>{active=(active+1)%cards.length;renderDeck();});
+
+    const deck=document.getElementById('projectDeck');
+    deck.addEventListener('touchstart',e=>{touchStartX=e.changedTouches[0].clientX;},{passive:true});
+    deck.addEventListener('touchend',e=>{
+      const diff=e.changedTouches[0].clientX-touchStartX;
+      if(Math.abs(diff)>45){
+        active=diff<0?(active+1)%cards.length:(active-1+cards.length)%cards.length;
+        renderDeck();
+      }
+    },{passive:true});
+
+    const revealEls=document.querySelectorAll('.reveal');
+    if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      const observer=new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },{threshold:.12});
+      revealEls.forEach(el=>observer.observe(el));
+    }else{
+      revealEls.forEach(el=>el.classList.add('visible'));
+    }
+
+    renderDeck();
+  </script>
 </body>
 </html>
