@@ -25,12 +25,11 @@ h1,h2,h3{font-family:"Space Grotesk","Inter",sans-serif}.hero h1{font-size:clamp
 .rule{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent)}.section{padding:92px 0}.section h2{font-size:clamp(2.35rem,5vw,4.15rem);font-weight:600;line-height:.98;letter-spacing:-.045em;margin:10px 0 16px;max-width:900px}.intro{color:var(--muted);max-width:860px;line-height:1.75;margin-bottom:32px}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card,.shot,.demo{background:linear-gradient(145deg,rgba(255,255,255,.035),transparent),var(--panel);border:1px solid var(--line);border-radius:var(--r)}
 .card{padding:26px}.card small{color:#8c8f96;font-weight:800;text-transform:uppercase;letter-spacing:.1em}.card h3{font-size:1.22rem;font-weight:600;margin:8px 0}.card p{color:var(--muted)}
-.gallery{display:grid;grid-template-columns:1fr 1fr;gap:20px}.shot{overflow:hidden}.shot:first-child{grid-column:1/-1}.shot img{width:100%;background:#0b0b0c}.caption{padding:15px 16px;color:var(--muted);font-size:.9rem}.caption strong{color:var(--text)}
-.demo{display:grid;grid-template-columns:1.1fr .9fr;overflow:hidden}.demo-visual{min-height:340px;background:#090909;display:flex;align-items:center;justify-content:center;padding:18px}.demo-visual video{width:100%;max-height:520px;border-radius:14px;background:#000;border:1px solid #25262a}.demo-copy{padding:34px;display:flex;flex-direction:column;justify-content:center}.demo-label{color:#8c8f96;font-size:.74rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase}.demo-copy h3{font-size:2rem;line-height:1.05;margin:10px 0 14px}.demo-copy p{color:var(--muted);line-height:1.75}.demo-note{margin-top:18px;border-left:2px solid var(--pink);padding-left:14px;color:#d7d8dc;font-size:.92rem}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:20px}.shot{overflow:hidden}.shot img{width:100%;background:#0b0b0c}.shot video{display:block;width:100%;background:#000}.video-shot{grid-column:1/-1}.caption{padding:15px 16px;color:var(--muted);font-size:.9rem}.caption strong{color:var(--text)}
 .notice{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);padding:26px}.notice strong{display:block;margin-bottom:8px;font-family:"Space Grotesk","Inter",sans-serif}.notice p{color:var(--muted)}
 .reveal{opacity:0;transform:translateY(18px);filter:blur(2px);transition:opacity .8s cubic-bezier(.22,.61,.36,1),transform .9s cubic-bezier(.16,1,.3,1),filter .7s}.reveal.visible{opacity:1;transform:none;filter:none}
 footer{border-top:1px solid rgba(255,255,255,.06);padding:28px 0;color:var(--muted);font-size:.88rem}.footer-inner{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-@media(max-width:850px){.grid3,.gallery,.demo{grid-template-columns:1fr}.shot:first-child{grid-column:auto}.section{padding:68px 0}.demo-visual{min-height:0}}@media(max-width:520px){.hero{padding-top:60px}.hero h1{font-size:3rem}.nav-inner{min-height:64px}}
+@media(max-width:850px){.grid3,.gallery{grid-template-columns:1fr}.video-shot{grid-column:auto}.section{padding:68px 0}}@media(max-width:520px){.hero{padding-top:60px}.hero h1{font-size:3rem}.nav-inner{min-height:64px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.reveal{opacity:1;transform:none;filter:none;transition:none}}
 </style>
 </head>
@@ -55,20 +54,12 @@ footer{border-top:1px solid rgba(255,255,255,.06);padding:28px 0;color:var(--mut
 </div></div></section>
 <div class="rule"></div>
 <section class="section"><div class="container">
-<div class="kicker reveal">Course Samples</div><h2 class="reveal">From definition to decision-making.</h2>
-<p class="intro reveal">These selected examples show the progression from introducing lighting types to helping learners decide where each approach makes sense.</p>
+<div class="kicker reveal">Course Samples</div><h2 class="reveal">From definition to hands-on demonstration.</h2>
+<p class="intro reveal">These selected examples move from explaining lighting types, to comparing when each approach makes sense, and finally to a short Unreal Engine demonstration.</p>
 <div class="gallery">
 <article class="shot reveal"><img src="../assets/unreal-lighting-course/built-vs-dynamic.svg" alt="Course slide explaining built lighting and dynamic lighting"><div class="caption"><strong>Concept introduction:</strong> distinguishes built lighting from dynamic lighting and explains the performance idea behind each.</div></article>
 <article class="shot reveal"><img src="../assets/unreal-lighting-course/when-to-use.svg" alt="Course slide comparing when to use built lighting and dynamic lighting"><div class="caption"><strong>Practical comparison:</strong> gives learners examples of when a static or moving lighting setup is the better fit.</div></article>
-<article class="shot reveal"><img src="../assets/unreal-lighting-course/directional-light.svg" alt="Course slide introducing a directional light demonstration"><div class="caption"><strong>Hands-on transition:</strong> moves from explanation into an Unreal Engine example by introducing the Directional Light.</div></article>
-</div></div></section>
-<div class="rule"></div>
-<section class="section"><div class="container">
-<div class="kicker reveal">Demonstration Design</div><h2 class="reveal">Short walkthroughs beside the writing.</h2>
-<p class="intro reveal">The course also uses short recorded demonstrations so learners can see the steps in the software instead of relying only on written directions.</p>
-<div class="demo reveal">
-<div class="demo-visual"><video controls playsinline preload="metadata" poster="../assets/unreal-lighting-course/directional-light.svg" aria-label="Directional Light Unreal Engine demonstration"><source src="../assets/unreal-lighting-course/directional-light.mp4" type="video/mp4">Your browser does not support embedded video.</video></div>
-<div class="demo-copy"><div class="demo-label">Recorded Software Walkthrough</div><h3>Directional Light example</h3><p>The demonstration shows the Unreal Engine interface while the surrounding lesson explains what a Directional Light represents and why it is used. This keeps the written explanation and the software action connected.</p><div class="demo-note">Press play to view the short Directional Light walkthrough directly on this page.</div></div>
+<article class="shot video-shot reveal"><video controls playsinline preload="metadata" aria-label="Directional Light Unreal Engine demonstration"><source src="../assets/unreal-lighting-course/directional-light.mp4" type="video/mp4">Your browser does not support embedded video.</video><div class="caption"><strong>Directional Light demonstration:</strong> the final media example is the actual recorded Unreal Engine walkthrough.</div></article>
 </div></div></section>
 <div class="rule"></div>
 <section class="section"><div class="container"><div class="notice reveal"><strong>Selected portfolio excerpts</strong><p>These are limited portfolio recreations based on selected course screenshots supplied for review. They are shown to demonstrate the instructional approach and visual design without publishing the complete course or editable source materials.</p></div></div></section>
