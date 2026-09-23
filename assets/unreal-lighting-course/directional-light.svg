@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1068 602">
+<rect width="1068" height="602" fill="#f29ad4"/>
+<rect width="674" height="379" fill="#111315"/>
+<rect x="18" y="20" width="638" height="26" fill="#24282d"/>
+<rect x="18" y="62" width="135" height="300" fill="#1b1e22"/>
+<rect x="166" y="62" width="350" height="300" fill="#080a0c"/>
+<rect x="528" y="62" width="128" height="300" fill="#1b1e22"/>
+<circle cx="338" cy="190" r="28" fill="#15181b"/>
+<polygon points="330,177 330,203 351,190" fill="#ffffff"/>
+<g font-family="Arial, Helvetica, sans-serif" fill="#050505" text-anchor="middle">
+<text x="858" y="138" font-size="66" font-weight="700">Lets add a</text>
+<text x="858" y="232" font-size="66" font-weight="700">Directional</text>
+<text x="858" y="326" font-size="66" font-weight="700">Light!</text>
+<text x="535" y="425" font-size="26">Imagine the sun as a distant light source.</text>
+<text x="535" y="462" font-size="26">In UE5, we simulate this effect using</text>
+<text x="535" y="499" font-size="26">the Directional Light.</text>
+</g>
+<path d="M1068 602H734c12-40 41-63 86-70 105-14 160 0 205-34 19-14 31-34 43-56Z" fill="#f16bc1"/>
+</svg>
