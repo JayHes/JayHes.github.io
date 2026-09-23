@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1068 602" role="img" aria-labelledby="t d">
+<title id="t">When would you use these lightings?</title>
+<desc id="d">Recreated course slide comparing built lighting and dynamic lighting use cases.</desc>
+<rect width="1068" height="602" fill="#f29ad4"/>
+<path d="M0 0h244c-8 82-52 144-122 179-36 18-78 23-122 22V0Z" fill="#f16bc1"/>
+<path d="M160 0c18 29 16 67 16 91 0 42-37 69-86 69-33 0-59-5-90-19" fill="none" stroke="#fff" stroke-width="2"/>
+<path d="M1068 602H734c11-41 39-65 85-70 106-10 163 0 207-33 18-13 29-31 42-54v157Z" fill="#f16bc1"/>
+<path d="M1068 448c-26 42-56 66-101 84-45 19-96 31-147 70" fill="none" stroke="#fff" stroke-width="2"/>
+<g fill="#050505" font-family="Arial, Helvetica, sans-serif" text-anchor="middle">
+<text x="534" y="98" font-size="67" font-weight="700">When would you use</text>
+<text x="534" y="195" font-size="67" font-weight="700">these lightings?</text>
+<text x="278" y="273" font-size="38" font-weight="700">Build Lighting</text>
+<text x="787" y="273" font-size="38" font-weight="700">Dynamic Lighting</text>
+<text x="278" y="336" font-size="26"><tspan x="278">This would work best for still</tspan><tspan x="278" dy="34">objects or spots where the</tspan><tspan x="278" dy="34">light will not be moving at</tspan><tspan x="278" dy="34">all. Lamps, bulbs, etc.</tspan></text>
+<text x="787" y="325" font-size="25"><tspan x="787">Dynamic lighting works best for</tspan><tspan x="787" dy="34">situations like a day-night cycle</tspan><tspan x="787" dy="34">or when the game sun needs</tspan><tspan x="787" dy="34">to rotate and move.</tspan></text>
+</g>
+</svg>
