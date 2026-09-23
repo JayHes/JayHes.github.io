@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Unreal Engine Lighting Course | Jerome</title>
+<meta name="description" content="Case study for Jerome's Unreal Engine 5 lighting course, combining written explanation, visual slides, and recorded software demonstrations." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#050505;--panel:#111214;--panel2:#17181b;--line:#2a2b2f;--bright:#45474d;--text:#f5f5f3;--muted:#a6a7ab;--silver:#c9cbd0;--pink:#f29ad4;--max:1180px;--r:24px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:"Inter",Arial,sans-serif;background:radial-gradient(circle at 50% -10%,rgba(255,255,255,.08),transparent 28%),#050505;color:var(--text);line-height:1.65;overflow-x:hidden}
+a{color:inherit;text-decoration:none}img{display:block;max-width:100%}.container{width:min(92%,var(--max));margin:auto}
+nav{position:sticky;top:0;z-index:100;background:rgba(5,5,5,.84);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-inner{width:min(92%,var(--max));margin:auto;min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-family:"Space Grotesk","Inter",sans-serif;font-weight:700;letter-spacing:.02em}.logo span{color:var(--silver)}
+.back{color:var(--muted);font-size:.9rem}.back:hover{color:#fff}
+.hero{padding:88px 0 58px}.eyebrow,.kicker{color:var(--silver);font-size:.76rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.eyebrow{display:flex;gap:10px;align-items:center}.eyebrow:before{content:"";width:34px;height:1px;background:#8c8f96}
+h1,h2,h3{font-family:"Space Grotesk","Inter",sans-serif}.hero h1{font-size:clamp(3.4rem,7vw,6.1rem);line-height:.93;letter-spacing:-.055em;font-weight:600;max-width:940px;margin:16px 0 22px}
+.lead{color:var(--muted);max-width:860px;font-size:1.08rem;line-height:1.75}.tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}.tag{border:1px solid var(--line);border-radius:999px;padding:7px 11px;background:#0d0d0e;color:#d7d8dc;font-size:.8rem}
+.cover{margin-top:40px;border:1px solid var(--line);border-radius:28px;overflow:hidden;background:#0c0c0d;box-shadow:0 30px 80px rgba(0,0,0,.42)}.cover img{width:100%}.cover-note{padding:13px 16px;color:var(--muted);font-size:.84rem;border-top:1px solid var(--line)}
+.rule{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent)}.section{padding:92px 0}.section h2{font-size:clamp(2.35rem,5vw,4.15rem);font-weight:600;line-height:.98;letter-spacing:-.045em;margin:10px 0 16px;max-width:900px}.intro{color:var(--muted);max-width:860px;line-height:1.75;margin-bottom:32px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card,.shot,.demo{background:linear-gradient(145deg,rgba(255,255,255,.035),transparent),var(--panel);border:1px solid var(--line);border-radius:var(--r)}
+.card{padding:26px}.card small{color:#8c8f96;font-weight:800;text-transform:uppercase;letter-spacing:.1em}.card h3{font-size:1.22rem;font-weight:600;margin:8px 0}.card p{color:var(--muted)}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:20px}.shot{overflow:hidden}.shot:first-child{grid-column:1/-1}.shot img{width:100%;background:#0b0b0c}.caption{padding:15px 16px;color:var(--muted);font-size:.9rem}.caption strong{color:var(--text)}
+.demo{display:grid;grid-template-columns:1.1fr .9fr;overflow:hidden}.demo-visual{min-height:340px;background:#090909;display:flex;align-items:center;justify-content:center;padding:18px}.demo-visual img{width:100%;border-radius:14px}.demo-copy{padding:34px;display:flex;flex-direction:column;justify-content:center}.demo-label{color:#8c8f96;font-size:.74rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase}.demo-copy h3{font-size:2rem;line-height:1.05;margin:10px 0 14px}.demo-copy p{color:var(--muted);line-height:1.75}.demo-note{margin-top:18px;border-left:2px solid var(--pink);padding-left:14px;color:#d7d8dc;font-size:.92rem}
+.notice{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);padding:26px}.notice strong{display:block;margin-bottom:8px;font-family:"Space Grotesk","Inter",sans-serif}.notice p{color:var(--muted)}
+.reveal{opacity:0;transform:translateY(18px);filter:blur(2px);transition:opacity .8s cubic-bezier(.22,.61,.36,1),transform .9s cubic-bezier(.16,1,.3,1),filter .7s}.reveal.visible{opacity:1;transform:none;filter:none}
+footer{border-top:1px solid rgba(255,255,255,.06);padding:28px 0;color:var(--muted);font-size:.88rem}.footer-inner{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(max-width:850px){.grid3,.gallery,.demo{grid-template-columns:1fr}.shot:first-child{grid-column:auto}.section{padding:68px 0}.demo-visual{min-height:0}}@media(max-width:520px){.hero{padding-top:60px}.hero h1{font-size:3rem}.nav-inner{min-height:64px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.reveal{opacity:1;transform:none;filter:none;transition:none}}
+</style>
+</head>
+<body id="top">
+<nav><div class="nav-inner"><a class="logo" href="../index.html">JEROME<span>.</span></a><a class="back" href="../index.html#projects">← Back to Work</a></div></nav>
+<main>
+<section class="hero"><div class="container reveal">
+<div class="eyebrow">Technical Training • Visual Learning • Unreal Engine 5</div>
+<h1>Unreal Engine 5 Lighting Course</h1>
+<p class="lead">A visual technical-learning project that combines plain-language explanations, presentation design, and short software demonstrations to make Unreal Engine lighting concepts easier to follow.</p>
+<div class="tags"><span class="tag">Technical Instruction</span><span class="tag">Visual Learning</span><span class="tag">Unreal Engine 5</span><span class="tag">Recorded Demonstrations</span></div>
+<div class="cover"><img src="../assets/unreal-lighting-course/cover.svg" alt="Unreal Engine 5 Lighting, Fog, and Post Processing course cover"><div class="cover-note">Portfolio recreation based on the original course cover.</div></div>
+</div></section>
+<div class="rule"></div>
+<section class="section"><div class="container">
+<div class="kicker reveal">Overview</div><h2 class="reveal">Explain the concept. Show the software. Connect the two.</h2>
+<p class="intro reveal">The course was designed around a simple instructional pattern: introduce the idea in writing, explain when it matters, then reinforce it with a visual or recorded Unreal Engine example.</p>
+<div class="grid3">
+<div class="card reveal"><small>Learning Goal</small><h3>Make lighting terminology approachable</h3><p>Technical concepts are translated into direct language so a beginner can understand what the lighting method does before working in the editor.</p></div>
+<div class="card reveal"><small>Teaching Method</small><h3>Written explanation + visual example</h3><p>Slides establish the concept and use case, then supporting visuals connect the explanation to what the learner sees in Unreal Engine.</p></div>
+<div class="card reveal"><small>Media</small><h3>Slides + short demonstrations</h3><p>The learning material combines designed presentation pages with short recorded software walkthroughs for practical reinforcement.</p></div>
+</div></div></section>
+<div class="rule"></div>
+<section class="section"><div class="container">
+<div class="kicker reveal">Course Samples</div><h2 class="reveal">From definition to decision-making.</h2>
+<p class="intro reveal">These selected examples show the progression from introducing lighting types to helping learners decide where each approach makes sense.</p>
+<div class="gallery">
+<article class="shot reveal"><img src="../assets/unreal-lighting-course/built-vs-dynamic.svg" alt="Course slide explaining built lighting and dynamic lighting"><div class="caption"><strong>Concept introduction:</strong> distinguishes built lighting from dynamic lighting and explains the performance idea behind each.</div></article>
+<article class="shot reveal"><img src="../assets/unreal-lighting-course/when-to-use.svg" alt="Course slide comparing when to use built lighting and dynamic lighting"><div class="caption"><strong>Practical comparison:</strong> gives learners examples of when a static or moving lighting setup is the better fit.</div></article>
+<article class="shot reveal"><img src="../assets/unreal-lighting-course/directional-light.svg" alt="Course slide introducing a directional light demonstration"><div class="caption"><strong>Hands-on transition:</strong> moves from explanation into an Unreal Engine example by introducing the Directional Light.</div></article>
+</div></div></section>
+<div class="rule"></div>
+<section class="section"><div class="container">
+<div class="kicker reveal">Demonstration Design</div><h2 class="reveal">Short walkthroughs beside the writing.</h2>
+<p class="intro reveal">The course also uses short recorded demonstrations so learners can see the steps in the software instead of relying only on written directions.</p>
+<div class="demo reveal">
+<div class="demo-visual"><img src="../assets/unreal-lighting-course/directional-light.svg" alt="Preview of the Directional Light demonstration slide"></div>
+<div class="demo-copy"><div class="demo-label">Recorded Software Walkthrough</div><h3>Directional Light example</h3><p>The demonstration shows the Unreal Engine interface while the surrounding lesson explains what a Directional Light represents and why it is used. This keeps the written explanation and the software action connected.</p><div class="demo-note">A short video demonstration was created alongside this lesson. The portfolio uses a selected visual preview rather than publishing the full source course materials.</div></div>
+</div></div></section>
+<div class="rule"></div>
+<section class="section"><div class="container"><div class="notice reveal"><strong>Selected portfolio excerpts</strong><p>These are limited portfolio recreations based on selected course screenshots supplied for review. They are shown to demonstrate the instructional approach and visual design without publishing the complete course or editable source materials.</p></div></div></section>
+</main>
+<footer><div class="container footer-inner"><span>© 2026 Jerome</span><a href="#top">Back to top ↑</a></div></footer>
+<script>
+const els=document.querySelectorAll('.reveal');
+if('IntersectionObserver' in window&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+ const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');o.unobserve(e.target)}}),{threshold:.14,rootMargin:'0px 0px -4% 0px'});els.forEach(el=>o.observe(el));
+}else{els.forEach(el=>el.classList.add('visible'))}
+</script>
+</body>
+</html>
