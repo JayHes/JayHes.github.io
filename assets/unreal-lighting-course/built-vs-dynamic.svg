@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1068 602" role="img" aria-labelledby="t d">
+<title id="t">The different types of lighting in UE5</title>
+<desc id="d">Recreated course slide explaining built lighting and dynamic lighting.</desc>
+<rect width="1068" height="602" fill="#f29ad4"/>
+<path d="M0 0h245c-10 83-51 143-116 176C92 195 48 202 0 202V0Z" fill="#f16bc1"/>
+<path d="M163 0c17 28 13 69 13 92 0 42-36 69-85 69-34 0-60-5-91-19" fill="none" stroke="#fff" stroke-width="2"/>
+<path d="M1068 602H734c11-41 39-65 85-70 106-10 163 0 207-33 18-13 29-31 42-54v157Z" fill="#f16bc1"/>
+<path d="M1068 448c-26 42-56 66-101 84-45 19-96 31-147 70" fill="none" stroke="#fff" stroke-width="2"/>
+<g fill="#050505" font-family="Arial, Helvetica, sans-serif" text-anchor="middle">
+<text x="534" y="100" font-size="65" font-weight="700">The different types of</text>
+<text x="534" y="195" font-size="65" font-weight="700">lighting in UE5</text>
+<text x="534" y="264" font-size="23">In software like Unreal Engine, you can <tspan font-weight="700">build lighting</tspan> or you can <tspan font-weight="700">keep lighting dynamic.</tspan></text>
+<text x="534" y="295" font-size="23">When you build lighting, the computer is going to basically pre render all of your lights.</text>
+<text x="534" y="326" font-size="23">This can save performance because the light is not recalculating all of that data</text>
+<text x="534" y="357" font-size="23">frame by frame, and it can also be rendered in with higher quality.</text>
+<text x="534" y="449" font-size="23">Dynamic lighting recalculates rendering and shadow data around it</text>
+<text x="534" y="480" font-size="23">every single frame.</text>
+</g>
+</svg>
